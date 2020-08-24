@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'jsom/pagination/version'
+require 'jsom/pagination/pagy'
 
 module Jsom
   module Pagination

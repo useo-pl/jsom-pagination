@@ -2,11 +2,13 @@ PATH
   remote: .
   specs:
     jsom-pagination (0.1.0)
+      pagy (~> 3.8.3)
 
 GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.4.4)
+    pagy (3.8.3)
     rake (12.3.3)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
