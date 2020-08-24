@@ -1,4 +1,4 @@
-# Jsom::Pagination
+# JSOM::Pagination
 
 An easy to use JSON:API support for web applications.
 
@@ -39,4 +39,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Jsom::Pagination project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/useo-pl/jsom-pagination/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the JSOM::Pagination project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/useo-pl/jsom-pagination/blob/master/CODE_OF_CONDUCT.md).

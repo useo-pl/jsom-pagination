@@ -4,7 +4,7 @@ require_relative 'lib/jsom/pagination/version'
 
 Gem::Specification.new do |spec|
   spec.name = 'jsom-pagination'
-  spec.version = Jsom::Pagination::VERSION
+  spec.version = JSOM::Pagination::VERSION
   spec.authors = ['Sebastian Wilgosz']
   spec.email = ['sebastian@driggl.com']
 

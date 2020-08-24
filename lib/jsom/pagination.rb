@@ -3,7 +3,7 @@
 require 'jsom/pagination/version'
 require 'jsom/pagination/pagy'
 
-module Jsom
+module JSOM
   module Pagination
     class Error < StandardError; end
     # Your code goes here...
