@@ -1,14 +1,13 @@
-# encoding: utf-8
 # frozen_string_literal: true
+
+require 'pagy'
 
 # Pagy initializer file (3.8.3)
 # Customize only what you really need and notice that Pagy works also without any of the following lines.
 # Should you just cherry pick part of this file, please maintain the require-order of the extras
 
-
 # Extras
 # See https://ddnexus.github.io/pagy/extras
-
 
 # Backend Extras
 
@@ -86,8 +85,9 @@ require 'pagy/extras/array'
 
 # Overflow extra: Allow for easy handling of overflowing pages
 # See https://ddnexus.github.io/pagy/extras/overflow
-# require 'pagy/extras/overflow'
-# Pagy::VARS[:overflow] = :empty_page    # default  (other options: :last_page and :exception)
+require 'pagy/extras/overflow'
+
+Pagy::VARS[:overflow] = :empty_page
 
 # Metadata extra: Provides the pagination metadata to Javascript frameworks like Vue.js, react.js, etc.
 # See https://ddnexus.github.io/pagy/extras/metadata
