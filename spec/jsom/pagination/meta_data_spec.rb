@@ -8,6 +8,7 @@ module JSOM
 
         expect(data.total).to eq(10)
         expect(data.pages).to eq(20)
+        expect(data.to_h).to eq(total: 10, pages: 20)
       end
 
       it 'raises an error for missing total' do
@@ -23,6 +24,7 @@ module JSOM
 
         expect(data.total).to eq(10)
         expect(data.pages).to eq(20)
+        expect(data.to_h).to eq(total: 10, pages: 20)
       end
     end
   end
