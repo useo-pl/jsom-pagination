@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dry-struct'
 require 'jsom/pagination/types'
 
@@ -20,7 +22,7 @@ module JSOM
             Dry::Types::Undefined
           elsif value == Dry::Types::Undefined
             value
-          elsif Dry::Types['params.integer'][value] < 0
+          elsif Dry::Types['params.integer'][value].negative?
             1
           else
             value
