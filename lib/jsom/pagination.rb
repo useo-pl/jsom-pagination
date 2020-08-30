@@ -5,6 +5,7 @@ require 'jsom/pagination/pagy'
 
 require 'jsom/pagination/page'
 require 'jsom/pagination/meta_data'
+require 'jsom/pagination/links'
 
 module JSOM
   module Pagination
