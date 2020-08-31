@@ -20,7 +20,59 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+**For arrays**
+
+```ruby
+  paginator = JSOM::Pagination::Paginator.new
+  collection = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  paginated = paginator.call(collection, params: { number: 2, size: 3 }, base_ur: 'https://example.com')
+```
+
+**For ActiveRecord collections**
+
+```ruby
+  paginator = JSOM::Pagination::Paginator.new
+  collection = Article.published
+  paginated = paginator.call(collection, params: { number: 2, size: 3 }, base_ur: 'https://example.com')
+```
+
+**Meta data object**
+
+You can call `meta` on the paginated collection to easily get meta information about the paginated results
+
+```ruby
+paginated.meta
+# => #<JSOM::Pagination::MetaData total=10 pages=4>
+
+paginated.meta.to_h
+# => {:total=>10, :pages=>4}
+```
+
+**Links object**
+
+You can call `links` on the paginated collection to easily get collection of pagination links for the client
+
+```ruby
+paginated.links
+# => #<JSOM::Pagination::Links:0x00007fdf5d0dd2b8 @url="https://example.com", @page=#<JSOM::Pagination::Page number=2 size=3>, @total_pages=4, @first="https://example.com?page[size]=3", @prev="https://example.com?page[size]=3", @self="https://example.com?page[number]=2&page[size]=3", @next="https://example.com?page[number]=3&page[size]=3", @last="https://example.com?page[number]=4&page[size]=3">
+
+paginated.links.to_h
+# => {
+#   :first=>"https://example.com?page[size]=3",
+#   :prev=>"https://example.com?page[size]=3",
+#   :self=>"https://example.com?page[number]=2&page[size]=3",
+#   :next=>"https://example.com?page[number]=3&page[size]=3",
+#   :last=>"https://example.com?page[number]=4&page[size]=3"
+# }
+```
+
+
+### Rendering using fast_jsonapi
+
+```
+options = { meta: paginated.meta.to_h, links: paginated.links.to_h }
+render json: serializer.new(paginated.items, options)
+```
 
 ## Development
 
