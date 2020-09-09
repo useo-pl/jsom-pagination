@@ -25,7 +25,7 @@ Or install it yourself as:
 ```ruby
   paginator = JSOM::Pagination::Paginator.new
   collection = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  paginated = paginator.call(collection, params: { number: 2, size: 3 }, base_ur: 'https://example.com')
+  paginated = paginator.call(collection, params: { number: 2, size: 3 }, base_url: 'https://example.com')
 ```
 
 **For ActiveRecord collections**
@@ -33,7 +33,7 @@ Or install it yourself as:
 ```ruby
   paginator = JSOM::Pagination::Paginator.new
   collection = Article.published
-  paginated = paginator.call(collection, params: { number: 2, size: 3 }, base_ur: 'https://example.com')
+  paginated = paginator.call(collection, params: { number: 2, size: 3 }, base_url: 'https://example.com')
 ```
 
 **Meta data object**
@@ -65,7 +65,6 @@ paginated.links.to_h
 #   :last=>"https://example.com?page[number]=4&page[size]=3"
 # }
 ```
-
 
 ### Rendering using fast_jsonapi
 
