@@ -8,7 +8,9 @@ if ENV['CI']
   SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 end
 
-SimpleCov.start
+SimpleCov.start do
+  add_filter '/spec/'
+end
 
 require 'jsom/pagination'
 
