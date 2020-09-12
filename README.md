@@ -1,7 +1,8 @@
 # JSOM::Pagination
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bc98c8c017c64b70a11ca79aea6c3e3c)](https://app.codacy.com/gh/useo-pl/jsom-pagination?utm_source=github.com&utm_medium=referral&utm_content=useo-pl/jsom-pagination&utm_campaign=Badge_Grade_Dashboard)
 [![Gem Version](https://badge.fury.io/rb/jsom-pagination.svg)](https://badge.fury.io/rb/jsom-pagination)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bc98c8c017c64b70a11ca79aea6c3e3c)](https://app.codacy.com/gh/useo-pl/jsom-pagination?utm_source=github.com&utm_medium=referral&utm_content=useo-pl/jsom-pagination&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/eab277bd1f694da88691a2e645adbe96)](https://www.codacy.com/gh/useo-pl/jsom-pagination?utm_source=github.com&utm_medium=referral&utm_content=useo-pl/jsom-pagination&utm_campaign=Badge_Coverage)
 
 An easy to use JSON:API support for web applications.
 
