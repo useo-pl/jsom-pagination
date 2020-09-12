@@ -1,5 +1,7 @@
 # JSOM::Pagination
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bc98c8c017c64b70a11ca79aea6c3e3c)](https://app.codacy.com/gh/useo-pl/jsom-pagination?utm_source=github.com&utm_medium=referral&utm_content=useo-pl/jsom-pagination&utm_campaign=Badge_Grade_Dashboard)
+
 An easy to use JSON:API support for web applications.
 
 ## Installation
