@@ -37,4 +37,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'dry-struct', '~>1.3.0'
   spec.add_dependency 'pagy', '~>3.8.3'
+
+  spec.add_development_dependency 'simplecov'
+
 end
