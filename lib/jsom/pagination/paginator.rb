@@ -26,7 +26,7 @@ module JSOM
           else
             collection.offset(pagy.offset).limit(pagy.items).to_a
           end
-        return pagy, paginated
+        [pagy, paginated]
       end
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dry-types'
 
 module JSOM
@@ -7,4 +9,3 @@ module JSOM
     end
   end
 end
-

@@ -2,6 +2,8 @@
 
 require_relative 'lib/jsom/pagination/version'
 
+# rubocop:disable Metrics/BlockLength
+#
 Gem::Specification.new do |spec|
   spec.name = 'jsom-pagination'
   spec.version = JSOM::Pagination::VERSION
@@ -41,3 +43,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'simplecov-cobertura'
 end
+# rubocop:enable Metrics/BlockLength
