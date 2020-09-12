@@ -16,31 +16,35 @@ gem 'jsom-pagination'
 
 And then execute:
 
-    $ bundle install
+```shell
+$ bundle install
+```
 
 Or install it yourself as:
 
-    $ gem install jsom-pagination
+```shell
+$ gem install jsom-pagination
+```
 
 ## Usage
 
-**For arrays**
+### For arrays
 
 ```ruby
-  paginator = JSOM::Pagination::Paginator.new
-  collection = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  paginated = paginator.call(collection, params: { number: 2, size: 3 }, base_url: 'https://example.com')
+paginator = JSOM::Pagination::Paginator.new
+collection = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+paginated = paginator.call(collection, params: { number: 2, size: 3 }, base_url: 'https://example.com')
 ```
 
-**For ActiveRecord collections**
+### For ActiveRecord collections
 
 ```ruby
-  paginator = JSOM::Pagination::Paginator.new
-  collection = Article.published
-  paginated = paginator.call(collection, params: { number: 2, size: 3 }, base_url: 'https://example.com')
+paginator = JSOM::Pagination::Paginator.new
+collection = Article.published
+paginated = paginator.call(collection, params: { number: 2, size: 3 }, base_url: 'https://example.com')
 ```
 
-**Meta data object**
+### Meta data object
 
 You can call `meta` on the paginated collection to easily get meta information about the paginated results
 
@@ -52,7 +56,7 @@ paginated.meta.to_h
 # => {:total=>10, :pages=>4}
 ```
 
-**Links object**
+### Links object
 
 You can call `links` on the paginated collection to easily get collection of pagination links for the client
 
@@ -72,8 +76,10 @@ paginated.links.to_h
 
 ### Rendering using fast_jsonapi
 
-    options = { meta: paginated.meta.to_h, links: paginated.links.to_h }
-    render json: serializer.new(paginated.items, options)
+```ruby
+options = { meta: paginated.meta.to_h, links: paginated.links.to_h }
+render json: serializer.new(paginated.items, options)
+```
 
 ## Development
 
