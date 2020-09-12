@@ -39,5 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'pagy', '~>3.8.3'
 
   spec.add_development_dependency 'simplecov'
-
+  spec.add_development_dependency 'simplecov-cobertura'
 end
