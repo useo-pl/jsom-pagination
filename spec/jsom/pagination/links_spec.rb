@@ -136,6 +136,25 @@ module JSOM
             last: 'https://example.com/articles?page[number]=3&page[size]=2'
           )
         end
+
+        it 'works when custom query parameters are passed in the URL' do
+          url = 'https://example.com/articles?type=published&page[number]=2&page[size]=2'
+          links = described_class.new(url: url, page: page, total_pages: 3)
+
+          expect(links.self).to eq('https://example.com/articles?type=published&page[number]=2&page[size]=2')
+          expect(links.prev).to eq('https://example.com/articles?type=published&page[size]=2')
+          expect(links.first).to eq('https://example.com/articles?type=published&page[size]=2')
+          expect(links.next).to eq('https://example.com/articles?type=published&page[number]=3&page[size]=2')
+          expect(links.last).to eq('https://example.com/articles?type=published&page[number]=3&page[size]=2')
+
+          expect(links.to_h).to eq(
+            self: 'https://example.com/articles?type=published&page[number]=2&page[size]=2',
+            prev: 'https://example.com/articles?type=published&page[size]=2',
+            first: 'https://example.com/articles?type=published&page[size]=2',
+            next: 'https://example.com/articles?type=published&page[number]=3&page[size]=2',
+            last: 'https://example.com/articles?type=published&page[number]=3&page[size]=2'
+          )
+        end
       end
     end
   end

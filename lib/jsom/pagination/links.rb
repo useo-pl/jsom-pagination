@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rack'
+
 module JSOM
   module Pagination
     class Links
@@ -30,10 +32,20 @@ module JSOM
       attr_reader :page, :total_pages, :url
 
       def initialize(page:, url:, total_pages:)
-        @url = url
+        @url = parse_url(url)
         @page = page
         @total_pages = total_pages
         generate_links
+      end
+
+      def parse_url(url)
+        uri = URI.parse(URI.unescape(url))
+        url_params = Rack::Utils.parse_nested_query(
+          uri.query
+        ).delete_if { |key, _value| key == 'page' }
+        uri.query = to_query(url_params)
+        uri.query = nil if uri.query.empty?
+        uri
       end
 
       def generate_links
@@ -50,7 +62,8 @@ module JSOM
       end
 
       def generate_url(page_number)
-        [url, url_params(page_number)].reject(&:empty?).join('?')
+        separator = url.to_s.include?('?') ? '&' : '?'
+        [url.to_s, url_params(page_number)].reject(&:empty?).join(separator)
       end
 
       def url_params(page_number)
@@ -61,12 +74,16 @@ module JSOM
         to_query(url_params)
       end
 
-      def to_query(obj, namespace = nil)
+      def to_query(obj, namespace = '')
         query = obj.collect do |key, value|
           if value.is_a?(Hash)
-            to_query(value, namespace ? "#{namespace}[#{key}]" : key)
+            to_query(value, namespace.empty? ? key : "#{namespace}[#{key}]")
           else
-            ["#{namespace}[#{key}]", value].join('=')
+            if namespace.empty?
+              [key, value].join('=')
+            else
+              ["#{namespace}[#{key}]", value].join('=')
+            end
           end
         end.compact
 
