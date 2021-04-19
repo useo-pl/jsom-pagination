@@ -39,7 +39,7 @@ module JSOM
       end
 
       def parse_url(url)
-        uri = URI.parse(URI.unescape(url))
+        uri = URI.parse(CGI.unescape(url))
         url_params = Rack::Utils.parse_nested_query(
           uri.query
         ).delete_if { |key, _value| key == 'page' }
