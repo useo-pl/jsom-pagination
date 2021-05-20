@@ -40,6 +40,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'dry-struct', '~>1.3.0'
   spec.add_dependency 'pagy', '~>3.8.3'
   spec.add_dependency 'rack'
+  spec.add_dependency 'addressable', '~> 2.3', '>= 2.3.7'
 
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'simplecov-cobertura'

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'rack'
-
+require 'rack/utils'
+require 'addressable'
 module JSOM
   module Pagination
     class Links
@@ -39,7 +39,8 @@ module JSOM
       end
 
       def parse_url(url)
-        uri = URI.parse(URI.unescape(url))
+        uri = Addressable::URI.parse(url)
+
         url_params = Rack::Utils.parse_nested_query(
           uri.query
         ).delete_if { |key, _value| key == 'page' }
