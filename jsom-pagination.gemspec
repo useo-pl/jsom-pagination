@@ -37,8 +37,8 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'dry-struct', '~>1.3.0'
-  spec.add_dependency 'pagy', '~>3.8.3'
+  spec.add_dependency 'dry-struct', '~>1.3'
+  spec.add_dependency 'pagy', '~>3.8'
   spec.add_dependency 'rack'
   spec.add_dependency 'addressable', '~> 2.3', '>= 2.3.7'
 
