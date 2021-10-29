@@ -13,3 +13,6 @@
 .DS_Store
 package.json
 package-lock.json
+
+#rubocop qa-tools default rules
+.rubocop-https*
