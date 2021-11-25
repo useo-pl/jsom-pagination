@@ -19,7 +19,7 @@ module JSOM
       attr_reader :page
 
       def pagy_custom(collection, page:)
-        pagy = Pagy.new(count: collection.count, page: page.number, items: page.size)
+        pagy = Pagy.new(count: collection.size, page: page.number, items: page.size)
         paginated =
           if collection.is_a?(Array)
             collection[pagy.offset, pagy.items]
