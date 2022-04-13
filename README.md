@@ -134,6 +134,7 @@ class ArtclesController < ApplicationController
     def serializer
         ArticleSerializer
     end
+end
 ```
 
 The response from the paginated json will look like below:
