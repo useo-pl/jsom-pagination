@@ -82,6 +82,88 @@ options = { meta: paginated.meta.to_h, links: paginated.links.to_h }
 render json: serializer.new(paginated.items, options)
 ```
 
+### Summary
+
+Using the information above, you can put everything all together by using [jsom-pagination](https://github.com/useo-pl/jsom-pagination) in a ruby framework of your choice.
+
+Below is an illustration in [Rails](https://rubyonrails.org/):
+
+```ruby
+# app/controllers/concerns/paginable.rb
+module Paginable
+    extend ActiveSupport::Concern
+    
+    def paginator
+      JSOM::Pagination::Paginator.new
+    end
+    
+    def pagination_params
+      params.permit![:page] # defaults to 20 pages 
+    end
+    
+    def paginate(collection)
+      paginator.call(collection, params: pagination_params, base_url: request.url)
+    end
+  
+    def render_collection(paginated)
+      options = {
+        # meta: paginated.meta.to_h, # Will get total pages, total count, etc.
+        links: paginated.links.to_h
+      }
+      paginated_result = serializer.new(paginated.items, options)
+  
+      render json: paginated_result
+    end
+end
+```
+
+```ruby
+# app/controllers/articles_controllers.rb
+class ArtclesController < ApplicationController
+    include Paginable
+
+    def index
+        articles = articles = Article.order('created_at DESC')
+        paginated = paginate(articles)
+    
+        articles.present? ? render_collection(paginated) : :not_found
+    end
+
+    private
+
+    def serializer
+        ArticleSerializer
+    end
+end
+```
+
+The response from the paginated json will look like below:
+
+```json
+{
+  "data": [
+    {
+      "id": "5404329",
+      "type": "article",
+      "attributes": {
+        "author": "Canan Ercan",
+        "copies": 10000,
+        "publisher": "Webster & Canan Publishers",
+        "price": "700"
+      }
+    }
+  ],
+  "links": {
+    "first": "http://127.0.0.1:3000/api/v1/articles",
+    "prev": "http://127.0.0.1:3000/api/v1/articles?page[number]=349",
+    "self": "http://127.0.0.1:3000/api/v1/articles?page[number]=350",
+    "next": "http://127.0.0.1:3000/api/v1/articles?page[number]=351",
+    "last": "http://127.0.0.1:3000/api/v1/articles?page[number]=352"
+  }
+}
+```
+
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
