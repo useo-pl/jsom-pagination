@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'dry-struct', '~>1.3'
-  spec.add_dependency 'pagy', '~>3.8'
+  spec.add_dependency 'pagy', '~>4.0'
   spec.add_dependency 'rack'
   spec.add_dependency 'addressable', '~> 2.3', '>= 2.3.7'
 
