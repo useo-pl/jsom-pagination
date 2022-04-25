@@ -45,7 +45,7 @@ module JSOM
     class DummyCollection
       attr_reader :items
 
-      def count
+      def size
         all.length
       end
 
