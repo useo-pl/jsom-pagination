@@ -16,3 +16,5 @@ package-lock.json
 
 #rubocop qa-tools default rules
 .rubocop-https*
+
+/jsom-pagination*.gem
