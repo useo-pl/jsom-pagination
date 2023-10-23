@@ -37,10 +37,10 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'dry-struct', '~>1.3'
-  spec.add_dependency 'pagy', '~>4.0'
+  spec.add_dependency 'dry-struct', '~>1'
+  spec.add_dependency 'pagy', '~> 6'
   spec.add_dependency 'rack'
-  spec.add_dependency 'addressable', '~> 2.3', '>= 2.3.7'
+  spec.add_dependency 'addressable', '~> 2'
 
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'simplecov-cobertura'
