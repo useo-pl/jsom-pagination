@@ -18,4 +18,4 @@ require 'pagy/extras/array'
 # See https://ddnexus.github.io/pagy/extras/overflow
 require 'pagy/extras/overflow'
 
-Pagy::VARS[:overflow] = :empty_page
+Pagy::DEFAULT[:overflow] = :empty_page
