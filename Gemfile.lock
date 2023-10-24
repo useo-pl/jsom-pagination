@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jsom-pagination (0.2.0)
+    jsom-pagination (1.0.0)
       addressable (~> 2)
       dry-struct (~> 1)
       pagy (~> 6)
